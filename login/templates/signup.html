@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Emp Signup Portal</title>
+    {% load static %}
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+	<div class="login-wrapper">
+  <div class="login-container">
+    <div class="login-header">
+      <h1 class="brand-title">Welcome To Emp Portal</h1>
+      <p class="brand-subtitle">Sign up to continue to create your account</p>
+    </div>
+    {% if messages %}
+        {% for message in messages %}
+          <div class="alert alert-{{ msg.tags }} mt-2">
+                {{ message }}
+          </div>
+        {% endfor %}
+    {% endif %}
+    <form class="login-form" id="loginForm" method="POST">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" id="name" name="name" class="form-input" placeholder="Enter name" required />
+      </div>
+
+        <div class="form-group">
+        <label for="email" class="form-label">Email Address</label>
+        <input type="email" id="email" name="email" class="form-input" placeholder="name@company.com" required />
+      </div>
+
+      <div class="form-group">
+          <label for="email" class="form-label">Password</label>
+          <input type="password" name="password" id="password" class="form-input" placeholder="Enter your password" required />
+      </div>
+      <div class="form-group">
+          <label for="age" class="form-label">Age</label>
+          <input type="number" name="age" id="age" class="form-input" placeholder="Select Age" required />
+      </div>
+      <div class="form-group">
+          <input type="checkbox" name="remember_me" id="remember_me" value="1" required />&nbsp;&nbsp;<span class="text-muted">Remember Me</span>
+      </div>
+
+      <button type="submit" class="submit-btn">
+        <span class="btn-text">Sign Up</span>
+        <span class="btn-loader"></span>
+      </button>
+    </form>
+    <p class="signup-text">
+      Do you have already account? <a href="{% url 'login' %}" class="signup-link">Log In</a>
+    </p>
+  </div>
+</div>
+
+</body>
+<!-- Bootstrap JS (must be at bottom) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</html>

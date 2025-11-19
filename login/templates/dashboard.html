@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Home Page | {{ user.name }} Portal</title>
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'css/home.css' %}">
+  <script src="{% static 'js/home.js' %}"></script>
+  <script h></script>
+	<!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+	<div class="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <h1 class="logo">✦ {{ user.name }} Studio</h1>
+        <nav class="nav">
+          <button class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <ul class="nav-list" id="navList">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="{%url 'logout' %}">Logout</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <h2 class="hero-title">{{ user.name }} Portfolio</h2>
+        <p class="hero-subtitle">My personal Portfolio and my handover projects listed below</p>
+      </div>
+    </section>
+
+    <!-- Search & Filter Section -->
+    <section class="filter-section">
+      <div class="container">
+        <div class="search-box">
+          <input 
+            type="text" 
+            id="searchInput" 
+            placeholder="Search projects..." 
+            class="search-input"
+          />
+          <span class="search-icon">🔍</span>
+        </div>
+        
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="web">Web Design</button>
+          <button class="filter-btn" data-filter="python">Python</button>
+          <button class="filter-btn" data-filter="nodejs">Node Js</button>
+          <button class="filter-btn" data-filter="illustration">Query Panels</button>
+        </div>
+        
+        <div class="results-count">
+          <span id="resultsCount">12</span> Projects Found
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery">
+      <div class="container">
+        <div class="gallery-grid" id="galleryGrid">
+          <div class="gallery-item" style="animation-delay: 0.1s;">
+            <div class="item-content">
+              <span class="item-category">mobile</span>
+              <h3 class="item-title">Fitness Tracking App</h3>
+              <p class="item-description">Track workouts and nutrition on the go</p>
+              <a href="#" class="float-end"><span class="item-category">View</span></a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="no-results" id="noResults">
+          <div class="no-results-icon">🔍</div>
+          <h3>No projects found</h3>
+          <p>Try adjusting your search or filter</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2025 {{ user.name }}. Made with ❤️ on CodePen</p>
+      </div>
+    </footer>
+  </div>
+
+</body>
+<!-- Bootstrap JS (must be at bottom) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</html>

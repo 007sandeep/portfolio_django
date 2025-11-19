@@ -138,3 +138,7 @@ SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MIDDLEWARE += [
+    'login.middleware.UserDataMiddleware',
+]

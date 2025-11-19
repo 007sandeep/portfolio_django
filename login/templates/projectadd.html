@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}Add Project | Portfolio{% endblock %}
+{% block content %}
+<!-- Search & Filter Section -->
+    <section class="filter-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-end">
+            <a href="{%url 'dashboard'%}"><button class="btn btn-danger text-white btn-sm"><i class="fa-solid fa-arrow-left"></i> Back to Dashboard</button></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery">
+      <div class="container">
+        <form method="post">
+            <div class="row mt-0">
+                <div class="col-md-12 mt-0 text-center">
+                    <h4>Add Project</h4>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="title" class="form-label">Project Title</label>
+                        <input type="text" name="title" class="form-control" placeholder="Enter Title">
+                    </div>
+                </div>
+            </div>
+        </form>
+      </div>
+    </section>
+{% endblock %}

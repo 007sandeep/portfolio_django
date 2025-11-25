@@ -1,33 +1,83 @@
 {% extends 'base.html' %}
 {% block title %}Add Project | Portfolio{% endblock %}
 {% block content %}
-<!-- Search & Filter Section -->
-    <section class="filter-section">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 text-end">
-            <a href="{%url 'dashboard'%}"><button class="btn btn-danger text-white btn-sm"><i class="fa-solid fa-arrow-left"></i> Back to Dashboard</button></a>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Gallery Section -->
-    <section class="gallery">
+
       <div class="container">
+        <div class="col-md-12 text-end mt-2">
+          <a href="{%url 'dashboard'%}"><button class="btn btn-danger text-white btn-sm"><i class="fa-solid fa-arrow-left"></i> Back to Dashboard</button></a>
+        </div>
+        <div class="col-md-12 mt-0 text-center">
+            <h4>Add Project</h4>
+        </div>
         <form method="post">
-            <div class="row mt-0">
-                <div class="col-md-12 mt-0 text-center">
-                    <h4>Add Project</h4>
+          <div class="row  my-5 px-5">
+            <div class="col-md-4">
+                  <div class="form-group">
+                      <label for="title" class="form-label">Project Type</label>
+                      <Select class="form-select" name="type">
+                        <option value="" selected>--Select--</option>
+                        <option>Python</option>
+                        <option>Codeignitor</option>
+                        <option>PHP</option>
+                        <option>Node Js</option>
+                        <option>Query Panels</option>
+                        <option>Web Designs</option>
+                      </Select>
+                  </div>
                 </div>
-                <div class="col-md-4">
+          </div>
+          
+            <div class="row px-5">
+              <hr>
+                <div class="col-md-6 mt-2">
                     <div class="form-group">
                         <label for="title" class="form-label">Project Title</label>
-                        <input type="text" name="title" class="form-control" placeholder="Enter Title">
+                        <input type="text" name="title" id="title" class="form-control" placeholder="Enter Title">
                     </div>
+                </div>
+                <div class="col-md-6 mt-2">
+                    <div class="form-group">
+                        <label for="link" class="form-label">Project Link</label>
+                        <input type="text" name="link" id="link" class="form-control" placeholder="Enter Title">
+                    </div>
+                </div>
+                <div class="col-md-12 mt-2">
+                    <div class="form-group">
+                        <label for="languages" class="form-label">Languages</label>
+                        <input type="text" name="languages" id="languages" class="form-control" placeholder="Enter Title" required>
+                    </div>
+                </div>
+                <div class="col-md-12 mt-2">
+                    <div class="form-group">
+                        <label for="description" class="form-label">Project Description <span class="text-danger">*</span></label>
+                        <textarea name="description" cols="5" rows="5" id="description" class="form-control" placeholder="Enter Project Description"></textarea>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mt-2">
+                    <div class="form-group">
+                        <label for="start_date" class="form-label">Start Date <span class="text-danger">*</span></label>
+                        <input type="date" name="start_date" id="start_date" class="form-control" placeholder="Enter Title" required>
+                    </div>
+                </div>
+                <div class="col-md-4 mt-2">
+                    <div class="form-group">
+                        <label for="end_date" class="form-label">End Date <span class="text-danger">*</span></label>
+                        <input type="date" name="end_date" id="end_date" class="form-control" placeholder="Enter Title">
+                    </div>
+                </div>
+                <div class="col-md-4 mt-2">
+                    <div class="form-group">
+                        <label for="currently_working" class="form-label">Currently Working <span class="text-danger">*</span></label>
+                        <input type="checkbox" name="currently_working" id="currently_working" placeholder="Enter Title">
+                    </div>
+                </div>
+                <div class="col-md-12 my-5 text-center">
+                   <button type="submit" class="btn btn-primary">Submit</button>
+                   <a href="{% url 'dashboard' %}"><button type="submit" class="btn btn-secondary">Cancel</button></a>
                 </div>
             </div>
         </form>
       </div>
-    </section>
 {% endblock %}

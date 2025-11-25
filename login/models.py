@@ -12,3 +12,14 @@ class Users(Document):
     status = IntField(required=True)
     created_on = DateTimeField(required=datetime.utcnow)
     last_time_login = DateTimeField(required=datetime.utcnow)
+
+class Project(Document):
+    type=StringField(required=True)
+    Title = StringField(required=True)
+    link = StringField(required=True)
+    languages = StringField(required=True)
+    description = StringField(required=True)
+    start_date = DateTimeField(required=datetime.utcnow)
+    end_date = DateTimeField(required=datetime.utcnow)
+    currently_working = StringField(required=True)
+

@@ -3,7 +3,7 @@ from django.views.decorators.cache import never_cache
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.template import loader
-from .models import Users
+
 from datetime import datetime
 from django.contrib import messages
 from .projects import projectadd
